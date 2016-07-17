@@ -5,12 +5,12 @@ ARG OPENCV_VERISON="3.1.0"
 
 # install dependencies
 RUN apt-get update
-RUN apt-get install -y --fix-missing libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev 
-RUN apt-get install -y --fix-missing python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
-RUN apt-get install -y --fix-missing curl build-essential checkinstall cmake unzip
+RUN apt-get install -y libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev 
+RUN apt-get install -y python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+RUN apt-get install -y curl build-essential checkinstall cmake
 
 # download opencv
-RUN curl -sL https://github.com/Itseez/opencv/archive/3.1.0.zip | unzip -d /tmp
+RUN curl -sL https://github.com/Itseez/opencv/archive/$OPENCV_VERISON.tar.gz | tar xvz -C /tmp
 RUN mkdir -p /tmp/opencv-$OPENCV_VERISON/build
 
 WORKDIR /tmp/opencv-$OPENCV_VERISON/build
