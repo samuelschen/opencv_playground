@@ -10,12 +10,12 @@ Playground (exercise, practice) code for OpenCV, Python, Numpy, and Scipy
 
 * Pull Docker image 
     ```
-    $ docker pull rainbean/opencv
+    $ docker pull quay.io/rainbean/opencv
     ```
 
 * Run interactive octave shell
     ```
-    $ docker run -v $PWD:/source -it --rm rainbean/opencv
+    $ docker run -v $PWD:/source -it --rm quay.io/rainbean/opencv
     ```
 
 
