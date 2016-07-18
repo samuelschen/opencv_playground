@@ -28,7 +28,9 @@ def segment_on_dt(a, img, thres):
 
 def num_major_segment(img):
     hist = cv2.calcHist([img],[0],None,[256],[0,256]) # compute histogram
-    low_values_indices = hist < 10*10  # Where values are low (small than 10*10 pixals)
+    #min_rec_size = 10*10  # Where values are low (small than 10*10 pixals)
+    min_rec_size = img.shape[0] * img.shape[0] * 0.001 # only count 1% rectangle
+    low_values_indices = hist < min_rec_size
     hist[low_values_indices] = 0  # All low values set to 0
     print("Segement count:", numpy.count_nonzero(hist) - 1) # remove one background
 
