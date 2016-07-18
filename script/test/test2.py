@@ -30,16 +30,16 @@ def num_major_segment(img):
     hist = cv2.calcHist([img],[0],None,[256],[0,256]) # compute histogram
     low_values_indices = hist < 10*10  # Where values are low (small than 10*10 pixals)
     hist[low_values_indices] = 0  # All low values set to 0
-    print "Segement count:", numpy.count_nonzero(hist) - 1 # remove one background
+    print("Segement count:", numpy.count_nonzero(hist) - 1) # remove one background
 
 def thres_from_args():
     try:
         return int(sys.argv[2])
     except IndexError:
-        print "Use zero as threshold"
+        print("Use zero as threshold")
         return 0
     except ValueError:
-        print "Not valid number, use zero as threshold"
+        print("Not valid number, use zero as threshold")
         return 0
 
 #############################################################################################

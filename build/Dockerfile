@@ -5,8 +5,9 @@ ARG OPENCV_VERISON="3.1.0"
 
 # install dependencies
 RUN apt-get update
-RUN apt-get install -y libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev 
-RUN apt-get install -y python-dev python-numpy python-scipy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+RUN apt-get install -y libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev 
+RUN apt-get install -y python-dev python-numpy python-scipy
+RUN apt-get install -y python3-dev python3-numpy python3-scipy
 RUN apt-get install -y curl build-essential checkinstall cmake 
 
 # download opencv
@@ -28,7 +29,9 @@ RUN ln /dev/null /dev/raw1394
 # cleanup package manager
 RUN apt-get remove --purge -y curl build-essential checkinstall cmake
 RUN apt-get autoclean && apt-get clean
+RUN apt-get autoremove -y
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # prepare dir
 RUN mkdir /source

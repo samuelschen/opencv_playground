@@ -1,5 +1,5 @@
 # Description
-Playground (exercise, practice) code for OpenCV, Python, Numpy, and Scipy
+Playground (exercise, practice) for OpenCV 3.1.0, Python 2.7, Python 3.5, Numpy, and Scipy
 
 ### Setup Runtime container
 
@@ -18,4 +18,18 @@ Playground (exercise, practice) code for OpenCV, Python, Numpy, and Scipy
     $ docker run -v $PWD:/source -it --rm quay.io/rainbean/opencv
     ```
 
+* [Optional] Pull Python 2 only images
+    ```
+    $ docker pull quay.io/rainbean/opencv:python2
+    ```
 
+### Invoke Python scripts
+* Python 2 scripts
+    ```
+    # python script/test/test1.py
+    ```
+
+* Python 3 scripts
+    ```
+    # python3 script/test/test2.py
+    ```
