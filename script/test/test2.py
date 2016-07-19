@@ -60,15 +60,13 @@ img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 _, img_bin = cv2.threshold(img_gray, 0, 255, cv2.THRESH_OTSU)
 img_bin = cv2.morphologyEx(img_bin, cv2.MORPH_OPEN, numpy.ones((3, 3), dtype=int))
 
-cv2.imwrite(seg, img_bin)
-
 result = segment_on_dt(img, img_bin, thres)
-cv2.imwrite(seg, result)
+#cv2.imwrite(seg, result)
 
 num_major_segment(result)
 
 result[result != 255] = 0
 result = cv2.dilate(result, None)
 img[result == 255] = (0, 0, 255)
-cv2.imwrite(lay, img)
+#cv2.imwrite(lay, img)
 
